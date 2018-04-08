@@ -66,7 +66,7 @@ function setup() {
 	}
 	for (var i = 0; i < n; i++) {
 		for (var j = 0; j < m; j++) {
-			if (index5 <= (matrix[0].length/2) && matrix[i][j] != 1 && matrix[i][j] != 2 && matrix[i][j] != 4 && matrix[i][j]!=8) {
+			if (index5 <= (matrix[0].length / 2) && matrix[i][j] != 1 && matrix[i][j] != 2 && matrix[i][j] != 4 && matrix[i][j] != 8) {
 				matrix[floor(random(n))][floor(random(m))] = 16;
 				index5++;
 			}
@@ -85,13 +85,13 @@ function setup() {
 				} else
 					if (matrix[y][x] == 4) {
 						gishatichArr.push(new gishatich(x, y));
-					}else 
-					if(matrix[y][x]==8){
-							xotsarqoxArr.push(new xotsarqox(x,y))
-					}else
-					if(matrix[y][x]==16){
-						krakArr.push(new krak(x,y))
-					}
+					} else
+						if (matrix[y][x] == 8) {
+							xotsarqoxArr.push(new xotsarqox(x, y))
+						} else
+							if (matrix[y][x] == 16) {
+								krakArr.push(new krak(x, y))
+							}
 		}
 	}
 }
@@ -107,11 +107,11 @@ function draw() {
 				fill("yellow")
 			} else if (matrix[y][x] == 4) {
 				fill("red")
-			} else if(matrix[y][x] == 8){
+			} else if (matrix[y][x] == 8) {
 				fill("#b511de")
-			} else if(matrix[y][x]==16){
+			} else if (matrix[y][x] == 16) {
 				fill("#f18d0e")
-			}else
+			} else
 				fill("#acacac")
 			rect(side * x, side * y, side, side);
 		}
@@ -139,15 +139,14 @@ function draw() {
 		}
 
 	}
-	for(var i in xotsarqoxArr){
+	for (var i in xotsarqoxArr) {
 		xotsarqoxArr[i].sharjvel();
 		xotsarqoxArr[i].stexcelxot();
 		xotsarqoxArr[i].stexcelxotaker();
 		xotsarqoxArr[i].hangcnelkrak();
 		xotsarqoxArr[i].stexcelgishatich();
 	}
-	for(var i in krakArr)
-	{
+	for (var i in krakArr) {
 		krakArr[i].bazmanal();
 		krakArr[i].hangel();
 	}
