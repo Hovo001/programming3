@@ -1,0 +1,24 @@
+{
+  "name": "lesson3",
+  "version": "1.0.0",
+  "description": "programming 3 lesson 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "var os = require(\"os\");"
+  },
+  "keywords": [
+    "var",
+    "message",
+    "=",
+    "\"The",
+    "platform",
+    "is",
+    "\";"
+  ],
+  "author": "me",
+  "license": "ISC"
+}
