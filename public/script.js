@@ -22,6 +22,27 @@ var index2 = 0;
 var index3 = 0;
 var index4 = 0;
 var index5 = 0;
+var xotiguyn = "#59FF00"
+var weather = "amar";
+function weatherChange() {
+	if (weather == "amar") {
+		weather = "ashun";
+		console.log(weather);
+	}
+	else if (weather == "ashun") {
+		weather = "dzmer";
+		console.log(weather);
+	}
+	else if (weather == "dzmer") {
+		weather = "garun";
+		console.log(weather);
+	}
+	else if (weather == "garun") {
+		weather = "amar";
+		console.log(weather);
+	}
+}
+setInterval(weatherChange, 2500);
 function setup() {
 
 	for (var i = 0; i < n; i++) {
@@ -101,7 +122,7 @@ function draw() {
 	for (var y = 0; y < matrix.length; y++) {
 		for (var x = 0; x < matrix.length; x++) {
 			if (matrix[y][x] == 1) {
-				fill("green");
+				fill(xotiguyn);
 
 			} else if (matrix[y][x] == 2) {
 				fill("yellow")
@@ -114,6 +135,67 @@ function draw() {
 			} else
 				fill("#acacac")
 			rect(side * x, side * y, side, side);
+		}
+	}
+	if (weather == "amar") {
+		for (var i in grassArr) {
+			grassArr[i].weathermultiply = 1;
+			xotiguyn = "#59FF00"
+		}
+		for (var i in xotakerArr) {
+			xotakerArr[i].weathermultiply = 3;
+		}
+		for (var i in gishatichArr) {
+			gishatichArr[i].weathermultiply = 4;
+		}
+		for (var i in krakArr) {
+			krakArr[i].weathermultiply = 4;
+		}
+	}
+	if (weather == "ashun") {
+		for (var i in grassArr) {
+			grassArr[i].weathermultiply = 4;
+			xotiguyn = "#FFB200"
+		}
+		for (var i in xotakerArr) {
+			xotakerArr[i].weathermultiply = 4;
+		}
+		for (var i in gishatichArr) {
+			gishatichArr[i].weathermultiply = 8;
+		}
+		for (var i in krakArr) {
+			krakArr[i].weathermultiply = 8;
+		}
+	}
+	if (weather == "dzmer") {
+		for (var i in grassArr) {
+			grassArr[i].weathermultiply = 8;
+			xotiguyn = "#00FFF3";
+		}
+		console.log("dzmera");
+		for (var i in xotakerArr) {
+			xotakerArr[i].weathermultiply = 5;
+		}
+		for (var i in gishatichArr) {
+			gishatichArr[i].weathermultiply = 2;
+		}
+		for (var i in krakArr) {
+			krakArr[i].weathermultiply = 12;
+		}
+	}
+	if (weather == "garun") {
+		for (var i in grassArr) {
+			grassArr[i].weathermultiply = 4;
+			xotiguyn = "#00FF55"
+		}
+		for (var i in xotakerArr) {
+			xotakerArr[i].weathermultiply = 4;
+		}
+		for (var i in gishatichArr) {
+			gishatichArr[i].weathermultiply = 8;
+		}
+		for (var i in krakArr) {
+			krakArr[i].weathermultiply = 8;
 		}
 	}
 	for (var i in grassArr) {

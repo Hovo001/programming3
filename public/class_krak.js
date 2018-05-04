@@ -4,6 +4,8 @@ class krak extends aliveCreature{
         this.directions= [];
         this.energy=6;
         this.index=16;
+        this.multiply=0;
+        this.weathermultiply=4;
     }
     stanalNorKordinatner() {
         this.directions = [
@@ -36,7 +38,7 @@ class krak extends aliveCreature{
         var norVandak = random(this.check(1, 2, 4));
         // console.log(norVandak, this.multiply); 
         // console.log("REGEN")
-        if (norVandak) {
+        if (this.multiply>=this.weathermultiply &&norVandak) {
             if (matrix[norVandak[1]][norVandak[0]] == 1) {
                 for (var i in grassArr) {
                     if (grassArr[i].x == norVandak[0] && grassArr[i].y == norVandak[1]) {

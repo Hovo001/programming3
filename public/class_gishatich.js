@@ -4,6 +4,8 @@ class gishatich extends aliveCreature{
         this.energy = 12;
         this.directions = [];
         this.index = 4;
+        this.multiply =0;
+        this.weathermultiply =4;
     }
     stanalNorKordinatner() {
         this.directions = [
@@ -64,10 +66,11 @@ class gishatich extends aliveCreature{
         var bazmanalutex1 = random(this.check(1));
         var bazmanalutex2 = random(this.check(2));
         
-if(bazmanalutex2){
+if(this.multiply>=this.weathermultiply && bazmanalutex2){
     var norgishatich = new gishatich(bazmanalutex2[0], bazmanalutex2[1]);
         gishatichArr.push(norgishatich);
         matrix[norgishatich.y][norgishatich.x] = 4;
+        this.multiply++;
 }
     }
     mahanal() {

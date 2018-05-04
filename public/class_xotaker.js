@@ -4,7 +4,8 @@ class Xotaker extends aliveCreature{
         this.energy = 12;
         this.directions = [];
         this.index = 2;
-
+        this.multiply = 3;
+        this.weathermultiply = 4;
     }
     stanalNorKordinatner() {
         this.directions = [
@@ -26,12 +27,12 @@ class Xotaker extends aliveCreature{
 
     bazmanal() {
         var bazmanalutex = random(this.check(1));
-        if (this.energy >= 13 && bazmanalutex) {
+        if (this.energy >= 13 && bazmanalutex && this.multiply>=this.weathermultiply) {
             var norxotaker = new Xotaker(bazmanalutex[0], bazmanalutex[1])
             xotakerArr.push(norxotaker);
             matrix[norxotaker.y][norxotaker.x] = 2;
             norxotaker.energy = 8;
-
+            this.multiply++;
         }
     }
     sharjvel() {
