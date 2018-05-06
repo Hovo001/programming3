@@ -1,10 +1,12 @@
-class Xotaker extends aliveCreature{
-    constructor(x, y) {
-        super(x,y);
+class Xotaker extends aliveCreature {
+    constructor(x, y, ser) {
+        super(x, y);
         this.energy = 12;
         this.directions = [];
         this.index = 2;
         this.multiply = 3;
+
+        this.ser = (ser == 0 ? "arakan" : "igakan")
         this.weathermultiply = 4;
     }
     stanalNorKordinatner() {
@@ -26,13 +28,21 @@ class Xotaker extends aliveCreature{
     }
 
     bazmanal() {
-        var bazmanalutex = random(this.check(1));
-        if (this.energy >= 13 && bazmanalutex && this.multiply>=this.weathermultiply) {
-            var norxotaker = new Xotaker(bazmanalutex[0], bazmanalutex[1])
-            xotakerArr.push(norxotaker);
-            matrix[norxotaker.y][norxotaker.x] = 2;
-            norxotaker.energy = 8;
-            this.multiply++;
+        if (this.ser == "arakan") {
+            var pntrelaxjik = random(this.check(2.5))
+            if (pntrelaxjik) {
+                var bazmanalutex = random(this.check(0))
+                if (bazmanalutex && this.multiply >= this.weathermultiply) {
+                    var norxotaker = new Xotaker(bazmanalutex[0], bazmanalutex[1])
+                    xotakerArr.push(norxotaker);
+                    var r = (Math.round(Math.random())) / 2;
+                    matrix[norxotaker.y][norxotaker.x] = 2;
+                    matrix[norxotaker.y][norxotaker.x] += r;
+                    norxotaker.energy = 30;
+                    this.multiply++;
+                }
+            }
+
         }
     }
     sharjvel() {
@@ -64,7 +74,7 @@ class Xotaker extends aliveCreature{
         }
     }
     mahanal() {
-        
+
         matrix[this.y][this.x] = 0;
         for (var j in xotakerArr) {
             if (xotakerArr[j].x == this.x && xotakerArr[j].y == this.y) {

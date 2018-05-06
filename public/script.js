@@ -9,7 +9,6 @@ var side = 15;
 // 	[1, 1, 0, 0, 0]
 // ];
 var matrix = []
-var kerparner = [0, 1, 2]
 var n = 30;
 var m = 30;
 var grassArr = [];
@@ -64,7 +63,7 @@ function setup() {
 	for (var i = 0; i < n; i++) {
 		for (var j = 0; j < m; j++) {
 			if (index2 <= (matrix[0].length / 2) && matrix[i][j] != 1) {
-				matrix[floor(random(n))][floor(random(m))] = 2;
+						matrix[floor(random(n))][floor(random(m))] = 2;
 				index2++;
 			}
 		}
@@ -102,10 +101,14 @@ function setup() {
 				grassArr.push(new Grass(x, y));
 			} else
 				if (matrix[y][x] == 2) {
-					xotakerArr.push(new Xotaker(x, y));
+					var r = (Math.round(Math.random())) / 2
+					matrix[y][x] += r;
+					xotakerArr.push(new Xotaker(x, y, r));
 				} else
 					if (matrix[y][x] == 4) {
-						gishatichArr.push(new gishatich(x, y));
+						var r = (Math.round(Math.random())) / 2
+						matrix[y][x] += r;
+						gishatichArr.push(new gishatich(x, y, r));
 					} else
 						if (matrix[y][x] == 8) {
 							xotsarqoxArr.push(new xotsarqox(x, y))
@@ -125,13 +128,21 @@ function draw() {
 				fill(xotiguyn);
 
 			} else if (matrix[y][x] == 2) {
-				fill("yellow")
-			} else if (matrix[y][x] == 4) {
+				fill("yellow");
+			} else if(matrix[y][x]==2.5){
+				fill("FFCB55");
+				console.log("gtel em axjik xotaker");
+			} 
+			else if (matrix[y][x] == 4) {
 				fill("red")
-			} else if (matrix[y][x] == 8) {
-				fill("#b511de")
+			} else if(matrix[y][x]==4.5){
+				fill("black");
+				console.log("gtel em axjik gishatich")
+			}
+			else if (matrix[y][x] == 8) {
+				fill("#b511de");
 			} else if (matrix[y][x] == 16) {
-				fill("#f18d0e")
+				fill("#f18d0e");
 			} else
 				fill("#acacac")
 			rect(side * x, side * y, side, side);

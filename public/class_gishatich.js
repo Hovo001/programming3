@@ -1,10 +1,11 @@
 class gishatich extends aliveCreature{
-    constructor(x, y) {
+    constructor(x, y,ser) {
         super(x,y);
         this.energy = 12;
         this.directions = [];
         this.index = 4;
         this.multiply =0;
+        this.ser =(ser == 0 ? "arakan": "igakan" ) 
         this.weathermultiply =4;
     }
     stanalNorKordinatner() {
@@ -62,16 +63,25 @@ class gishatich extends aliveCreature{
             }
         }
     }
+
     bazmanal() {
-        var bazmanalutex1 = random(this.check(1));
-        var bazmanalutex2 = random(this.check(2));
+          if (this.ser == "arakan") {
+            var pntrelaxjik = random(this.check(4.5))
+            if (pntrelaxjik) {
+                var bazmanalutex = random(this.check(0))
+                if (bazmanalutex && this.multiply >= this.weathermultiply) {
+                    var r = (Math.round(Math.random())) / 2
+                    matrix[y][x] += r;
+                    var norgishatich = new gishatich(bazmanalutex[0], bazmanalutex[1])
+                    gishatichArr.push(norgishatich);
+                    matrix[norgishatich.y][norgishatich.x] = 4;
+                    matrix[norgishatich.y][norgishatich.x] += r;
+                    this.multiply++;
+                }
+            }
+
+        }
         
-if(this.multiply>=this.weathermultiply && bazmanalutex2){
-    var norgishatich = new gishatich(bazmanalutex2[0], bazmanalutex2[1]);
-        gishatichArr.push(norgishatich);
-        matrix[norgishatich.y][norgishatich.x] = 4;
-        this.multiply++;
-}
     }
     mahanal() {
         for (var i in gishatichArr) {
