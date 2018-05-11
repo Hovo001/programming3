@@ -7,7 +7,7 @@ class Xotaker extends aliveCreature {
         this.multiply = 3;
 
         this.ser = (ser == 0 ? "arakan" : "igakan")
-        this.weathermultiply = 4;
+        this.weathermultiply = 2;
     }
     stanalNorKordinatner() {
         this.directions = [
@@ -49,28 +49,54 @@ class Xotaker extends aliveCreature {
         this.stanalNorKordinatner();
         var norvandak = random(this.check(0));
         matrix[this.y][this.x] = 0;
-        if (norvandak) {
-            this.x = norvandak[0];
-            this.y = norvandak[1];
-            matrix[this.y][this.x] = 2;
+        if (this.ser == "arakan") {
+            if (norvandak) {
+                this.x = norvandak[0];
+                this.y = norvandak[1];
+                matrix[this.y][this.x] = 2;
+            }
+        } else if (this.ser == "igakan") {
+            if (norvandak) {
+                this.x = norvandak[0];
+                this.y = norvandak[1];
+                matrix[this.y][this.x] = 2.5;
+            }
         }
+
     }
     utel() {
         this.stanalNorKordinatner();
         var gtacxot = random(this.check(1))
-        if (gtacxot) {
-            matrix[this.y][this.x] = 0;
-            this.x = gtacxot[0];
-            this.y = gtacxot[1];
-            matrix[this.y][this.x] = 2;
-            this.energy++;
-            for (var j in grassArr) {
-                if (grassArr[j].x == this.x && grassArr[j].y == this.y) {
-                    grassArr.splice(j, 1);
+        if (this.ser == "arakan") {
+            if (gtacxot) {
+                matrix[this.y][this.x] = 0;
+                this.x = gtacxot[0];
+                this.y = gtacxot[1];
+                matrix[this.y][this.x] = 2;
+                this.energy++;
+                for (var j in grassArr) {
+                    if (grassArr[j].x == this.x && grassArr[j].y == this.y) {
+                        grassArr.splice(j, 1);
+                    }
                 }
+            } else {
+                this.energy--;
             }
-        } else {
-            this.energy--;
+        } else if (this.ser == "Igakan") {
+            if (gtacxot) {
+                matrix[this.y][this.x] = 0;
+                this.x = gtacxot[0];
+                this.y = gtacxot[1];
+                matrix[this.y][this.x] = 2.5;
+                this.energy++;
+                for (var j in grassArr) {
+                    if (grassArr[j].x == this.x && grassArr[j].y == this.y) {
+                        grassArr.splice(j, 1);
+                    }
+                }
+            } else {
+                this.energy--;
+            }
         }
     }
     mahanal() {

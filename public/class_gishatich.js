@@ -1,7 +1,7 @@
 class gishatich extends aliveCreature{
     constructor(x, y,ser) {
         super(x,y);
-        this.energy = 12;
+        this.energy = 30;
         this.directions = [];
         this.index = 4;
         this.multiply =0;
@@ -39,24 +39,57 @@ class gishatich extends aliveCreature{
         this.stanalNorKordinatner();
         var norvandak = random(this.check(0));
         matrix[this.y][this.x] = 0;
-        if (norvandak) {
+      if(this.ser=="arakan"){
+            if (norvandak) {
             this.x = norvandak[0];
             this.y = norvandak[1];
             matrix[this.y][this.x] = 4;
         }
+      }else if(this.ser=="igakan"){
+            if (norvandak) {
+            this.x = norvandak[0];
+            this.y = norvandak[1];
+            matrix[this.y][this.x] = 4.5;
+        }
+      }
     }
     utel() {
         this.stanalNorKordinatner();
         var gtackendani = random(this.check(2))
-        if (gtackendani) {
+        var gtacaxjikkendani = random(this.check(2.5))
+     if(this.ser == "arakan"){
+            if (gtackendani) {
             matrix[this.y][this.x] = 0;
             this.x = gtackendani[0];
             this.y = gtackendani[1];
             matrix[this.y][this.x] = 4;
             this.energy++;
+        }else if(gtacaxjikkendani){
+            matrix[this.y][this.x] = 0;
+            this.x = gtacaxjikkendani[0];
+            this.y = gtacaxjikkendani[1];
+            matrix[this.y][this.x] = 4;
+            this.energy++;
         } else {
             this.energy--;
         }
+     }else if(this.ser == "igakan"){
+                if (gtackendani) {
+            matrix[this.y][this.x] = 0;
+            this.x = gtackendani[0];
+            this.y = gtackendani[1];
+            matrix[this.y][this.x] = 4.5;
+            this.energy++;
+        }else if(gtacaxjikkendani){
+            matrix[this.y][this.x] = 0;
+            this.x = gtacaxjikkendani[0];
+            this.y = gtacaxjikkendani[1];
+            matrix[this.y][this.x] = 4.5;
+            this.energy++;
+        } else {
+            this.energy--;
+        }
+     }
         for (var j in xotakerArr) {
             if (xotakerArr[j].x == this.x && xotakerArr[j].y == this.y) {
                 xotakerArr.splice(j, 1);
@@ -68,14 +101,16 @@ class gishatich extends aliveCreature{
           if (this.ser == "arakan") {
             var pntrelaxjik = random(this.check(4.5))
             if (pntrelaxjik) {
+              console.log("uzumem bazmanam");
                 var bazmanalutex = random(this.check(0))
-                if (bazmanalutex && this.multiply >= this.weathermultiply) {
+                if (bazmanalutex ) {
                     var r = (Math.round(Math.random())) / 2
-                    matrix[y][x] += r;
+                    matrix[this.y][this.x] += r;
                     var norgishatich = new gishatich(bazmanalutex[0], bazmanalutex[1])
                     gishatichArr.push(norgishatich);
                     matrix[norgishatich.y][norgishatich.x] = 4;
                     matrix[norgishatich.y][norgishatich.x] += r;
+                    console.log("bazmaca");
                     this.multiply++;
                 }
             }

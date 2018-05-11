@@ -26,19 +26,15 @@ var weather = "amar";
 function weatherChange() {
 	if (weather == "amar") {
 		weather = "ashun";
-		console.log(weather);
 	}
 	else if (weather == "ashun") {
 		weather = "dzmer";
-		console.log(weather);
 	}
 	else if (weather == "dzmer") {
 		weather = "garun";
-		console.log(weather);
 	}
 	else if (weather == "garun") {
 		weather = "amar";
-		console.log(weather);
 	}
 }
 setInterval(weatherChange, 2500);
@@ -70,7 +66,7 @@ function setup() {
 	}
 	for (var i = 0; i < n; i++) {
 		for (var j = 0; j < m; j++) {
-			if (index3 <= (matrix[0].length / 12) && matrix[i][j] != 1 && matrix[i][j] != 2) {
+			if (index3 <= (matrix[0].length / 4) && matrix[i][j] != 1 && matrix[i][j] != 2) {
 				matrix[floor(random(n))][floor(random(m))] = 4;
 				index3++;
 			}
@@ -93,7 +89,7 @@ function setup() {
 		}
 	}
 	createCanvas(side * matrix[0].length, matrix.length * side)
-	frameRate(2);
+	// frameRate(2);
 	background("#acacac");
 	for (var y = 0; y < matrix.length; y++) {
 		for (var x = 0; x < matrix[y].length; x++) {
@@ -131,13 +127,11 @@ function draw() {
 				fill("yellow");
 			} else if(matrix[y][x]==2.5){
 				fill("FFCB55");
-				console.log("gtel em axjik xotaker");
 			} 
 			else if (matrix[y][x] == 4) {
 				fill("red")
 			} else if(matrix[y][x]==4.5){
 				fill("black");
-				console.log("gtel em axjik gishatich")
 			}
 			else if (matrix[y][x] == 8) {
 				fill("#b511de");
@@ -150,11 +144,11 @@ function draw() {
 	}
 	if (weather == "amar") {
 		for (var i in grassArr) {
-			grassArr[i].weathermultiply = 1;
+			grassArr[i].weathermultiply =4;
 			xotiguyn = "#59FF00"
 		}
 		for (var i in xotakerArr) {
-			xotakerArr[i].weathermultiply = 3;
+			xotakerArr[i].weathermultiply = 2;
 		}
 		for (var i in gishatichArr) {
 			gishatichArr[i].weathermultiply = 4;
@@ -165,11 +159,11 @@ function draw() {
 	}
 	if (weather == "ashun") {
 		for (var i in grassArr) {
-			grassArr[i].weathermultiply = 4;
+			grassArr[i].weathermultiply = 10;
 			xotiguyn = "#FFB200"
 		}
 		for (var i in xotakerArr) {
-			xotakerArr[i].weathermultiply = 4;
+			xotakerArr[i].weathermultiply = 3;
 		}
 		for (var i in gishatichArr) {
 			gishatichArr[i].weathermultiply = 8;
@@ -180,12 +174,11 @@ function draw() {
 	}
 	if (weather == "dzmer") {
 		for (var i in grassArr) {
-			grassArr[i].weathermultiply = 8;
+			grassArr[i].weathermultiply = 16;
 			xotiguyn = "#00FFF3";
 		}
-		console.log("dzmera");
 		for (var i in xotakerArr) {
-			xotakerArr[i].weathermultiply = 5;
+			xotakerArr[i].weathermultiply = 4;
 		}
 		for (var i in gishatichArr) {
 			gishatichArr[i].weathermultiply = 2;
@@ -196,11 +189,11 @@ function draw() {
 	}
 	if (weather == "garun") {
 		for (var i in grassArr) {
-			grassArr[i].weathermultiply = 4;
+			grassArr[i].weathermultiply = 12;
 			xotiguyn = "#00FF55"
 		}
 		for (var i in xotakerArr) {
-			xotakerArr[i].weathermultiply = 4;
+			xotakerArr[i].weathermultiply = 2;
 		}
 		for (var i in gishatichArr) {
 			gishatichArr[i].weathermultiply = 8;
@@ -224,10 +217,8 @@ function draw() {
 	for (var i in gishatichArr) {
 		gishatichArr[i].sharjvel();
 		gishatichArr[i].utel();
-		if (gishatichArr[i].energy >= 18) {
 			gishatichArr[i].bazmanal();
-		}
-		if (gishatichArr[i].energy <= -35) {
+		if (gishatichArr[i].energy <= -60) {
 			gishatichArr[i].mahanal();
 		}
 

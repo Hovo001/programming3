@@ -3,7 +3,7 @@ class Grass extends aliveCreature{
         super(x,y);
         this.guyn = 'green'
         this.multiply = 0;
-        this.weathermultiply = 4
+        this.weathermultiply = 8;
         this.directions = [
             [this.x - 1, this.y - 1],
             [this.x, this.y - 1],
