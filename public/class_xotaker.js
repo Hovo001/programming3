@@ -33,9 +33,9 @@ class Xotaker extends aliveCreature {
             if (pntrelaxjik) {
                 var bazmanalutex = random(this.check(0))
                 if (bazmanalutex && this.multiply >= this.weathermultiply) {
-                    var norxotaker = new Xotaker(bazmanalutex[0], bazmanalutex[1])
-                    xotakerArr.push(norxotaker);
                     var r = (Math.round(Math.random())) / 2;
+                    var norxotaker = new Xotaker(bazmanalutex[0], bazmanalutex[1],r)
+                    xotakerArr.push(norxotaker);
                     matrix[norxotaker.y][norxotaker.x] = 2;
                     matrix[norxotaker.y][norxotaker.x] += r;
                     norxotaker.energy = 30;

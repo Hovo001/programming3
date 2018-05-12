@@ -98,20 +98,21 @@ class gishatich extends aliveCreature{
     }
 
     bazmanal() {
+
           if (this.ser == "arakan") {
+              this.multiply++;
             var pntrelaxjik = random(this.check(4.5))
             if (pntrelaxjik) {
-              console.log("uzumem bazmanam");
                 var bazmanalutex = random(this.check(0))
-                if (bazmanalutex ) {
+                if (bazmanalutex && this.multiply>=this.weathermultiply) {
                     var r = (Math.round(Math.random())) / 2
                     matrix[this.y][this.x] += r;
-                    var norgishatich = new gishatich(bazmanalutex[0], bazmanalutex[1])
+                    var norgishatich = new gishatich(bazmanalutex[0], bazmanalutex[1],r)
                     gishatichArr.push(norgishatich);
                     matrix[norgishatich.y][norgishatich.x] = 4;
                     matrix[norgishatich.y][norgishatich.x] += r;
-                    console.log("bazmaca");
-                    this.multiply++;
+                    this.multiply=0;
+                    console.log("bazmaca")
                 }
             }
 

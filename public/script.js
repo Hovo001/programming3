@@ -196,7 +196,7 @@ function draw() {
 			xotakerArr[i].weathermultiply = 2;
 		}
 		for (var i in gishatichArr) {
-			gishatichArr[i].weathermultiply = 8;
+			gishatichArr[i].weathermultiply = 4	;
 		}
 		for (var i in krakArr) {
 			krakArr[i].weathermultiply = 8;
@@ -218,7 +218,7 @@ function draw() {
 		gishatichArr[i].sharjvel();
 		gishatichArr[i].utel();
 			gishatichArr[i].bazmanal();
-		if (gishatichArr[i].energy <= -60) {
+		if (gishatichArr[i].energy <= -20) {
 			gishatichArr[i].mahanal();
 		}
 
