@@ -4,7 +4,7 @@ class Xotaker extends aliveCreature {
         this.energy = 12;
         this.directions = [];
         this.index = 2;
-        this.multiply = 3;
+        this.multiply = 5;
 
         this.ser = (ser == 0 ? "arakan" : "igakan")
         this.weathermultiply = 2;

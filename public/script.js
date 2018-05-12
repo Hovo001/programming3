@@ -148,7 +148,7 @@ function draw() {
 			xotiguyn = "#59FF00"
 		}
 		for (var i in xotakerArr) {
-			xotakerArr[i].weathermultiply = 2;
+			xotakerArr[i].weathermultiply = 5;
 		}
 		for (var i in gishatichArr) {
 			gishatichArr[i].weathermultiply = 4;
@@ -163,7 +163,7 @@ function draw() {
 			xotiguyn = "#FFB200"
 		}
 		for (var i in xotakerArr) {
-			xotakerArr[i].weathermultiply = 3;
+			xotakerArr[i].weathermultiply = 7;
 		}
 		for (var i in gishatichArr) {
 			gishatichArr[i].weathermultiply = 8;
@@ -178,7 +178,7 @@ function draw() {
 			xotiguyn = "#00FFF3";
 		}
 		for (var i in xotakerArr) {
-			xotakerArr[i].weathermultiply = 4;
+			xotakerArr[i].weathermultiply = 8;
 		}
 		for (var i in gishatichArr) {
 			gishatichArr[i].weathermultiply = 2;
@@ -193,7 +193,7 @@ function draw() {
 			xotiguyn = "#00FF55"
 		}
 		for (var i in xotakerArr) {
-			xotakerArr[i].weathermultiply = 2;
+			xotakerArr[i].weathermultiply = 6;
 		}
 		for (var i in gishatichArr) {
 			gishatichArr[i].weathermultiply = 4	;
