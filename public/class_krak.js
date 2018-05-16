@@ -36,8 +36,6 @@ class krak extends aliveCreature{
     }
     bazmanal() {
         var norVandak = random(this.check(1, 2, 4));
-        // console.log(norVandak, this.multiply); 
-        // console.log("REGEN")
         if (this.multiply>=this.weathermultiply &&norVandak) {
             if (matrix[norVandak[1]][norVandak[0]] == 1) {
                 for (var i in grassArr) {

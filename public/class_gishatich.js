@@ -112,7 +112,6 @@ class gishatich extends aliveCreature{
                     matrix[norgishatich.y][norgishatich.x] = 4;
                     matrix[norgishatich.y][norgishatich.x] += r;
                     this.multiply=0;
-                    console.log("bazmaca")
                 }
             }
 

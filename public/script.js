@@ -15,6 +15,7 @@ var grassArr = [];
 var xotakerArr = [];
 var gishatichArr = [];
 var xotsarqoxArr = [];
+var varvacxotArr = [];
 var krakArr = [];
 var index1 = 0;
 var index2 = 0;
@@ -23,6 +24,8 @@ var index4 = 0;
 var index5 = 0;
 var xotiguyn = "#59FF00"
 var weather = "amar";
+var xpel;
+var select=0;
 function weatherChange() {
 	if (weather == "amar") {
 		weather = "ashun";
@@ -39,7 +42,7 @@ function weatherChange() {
 }
 setInterval(weatherChange, 2500);
 function setup() {
-
+	xpel = document.getElementById("lightning");
 	for (var i = 0; i < n; i++) {
 		matrix[i] = [];
 		for (var j = 0; j < m; j++) {
@@ -59,7 +62,7 @@ function setup() {
 	for (var i = 0; i < n; i++) {
 		for (var j = 0; j < m; j++) {
 			if (index2 <= (matrix[0].length / 2) && matrix[i][j] != 1) {
-						matrix[floor(random(n))][floor(random(m))] = 2;
+				matrix[floor(random(n))][floor(random(m))] = 2;
 				index2++;
 			}
 		}
@@ -125,26 +128,51 @@ function draw() {
 
 			} else if (matrix[y][x] == 2) {
 				fill("yellow");
-			} else if(matrix[y][x]==2.5){
+			} else if (matrix[y][x] == 2.5) {
 				fill("FFCB55");
-			} 
+			}
 			else if (matrix[y][x] == 4) {
 				fill("red")
-			} else if(matrix[y][x]==4.5){
+			} else if (matrix[y][x] == 4.5) {
 				fill("black");
 			}
 			else if (matrix[y][x] == 8) {
 				fill("#b511de");
-			} else if (matrix[y][x] == 16) {
+			} else if (matrix[y][x] == 10){
+				fill("#001DFF");
+			}else if (matrix[y][x] == 16) {
 				fill("#f18d0e");
 			} else
 				fill("#acacac")
 			rect(side * x, side * y, side, side);
 		}
 	}
+	xpel.onclick=function(){
+		for (var y = 0; y < n; y++) {
+			for (var x = 0; x < m; x++) {
+				
+				
+				if(select>=24 && matrix[y][x]==1){
+					for(var i in grassArr){
+						if(y==grassArr[i].y && x==grassArr[i].x){
+							matrix[y][x]=10;
+							// varvacxotArr.push(grassArr[i]);
+							grassArr.splice(i,1);
+							console.log("tadam")
+							varvacxotArr.push(new varvacxot(x,y))
+						}
+					}
+					select=0;
+				}
+				select++;
+				
+				}
+			}
+		}
+	
 	if (weather == "amar") {
 		for (var i in grassArr) {
-			grassArr[i].weathermultiply =4;
+			grassArr[i].weathermultiply = 4;
 			xotiguyn = "#59FF00"
 		}
 		for (var i in xotakerArr) {
@@ -190,13 +218,13 @@ function draw() {
 	if (weather == "garun") {
 		for (var i in grassArr) {
 			grassArr[i].weathermultiply = 12;
-			xotiguyn = "#00FF55"
+			xotiguyn = "#00FF55";
 		}
 		for (var i in xotakerArr) {
 			xotakerArr[i].weathermultiply = 6;
 		}
 		for (var i in gishatichArr) {
-			gishatichArr[i].weathermultiply = 4	;
+			gishatichArr[i].weathermultiply = 4;
 		}
 		for (var i in krakArr) {
 			krakArr[i].weathermultiply = 8;
@@ -217,7 +245,7 @@ function draw() {
 	for (var i in gishatichArr) {
 		gishatichArr[i].sharjvel();
 		gishatichArr[i].utel();
-			gishatichArr[i].bazmanal();
+		gishatichArr[i].bazmanal();
 		if (gishatichArr[i].energy <= -20) {
 			gishatichArr[i].mahanal();
 		}
@@ -233,6 +261,10 @@ function draw() {
 	for (var i in krakArr) {
 		krakArr[i].bazmanal();
 		krakArr[i].hangel();
+	}
+	for(var i in varvacxotArr){
+		varvacxotArr[i].varvel();
+		console.log("varveci");
 	}
 }
 
