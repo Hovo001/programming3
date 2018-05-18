@@ -2,7 +2,7 @@ class krak extends aliveCreature{
     constructor(x,y){
         super(x,y);
         this.directions= [];
-        this.energy=6;
+        this.energy=12;
         this.index=16;
         this.multiply=0;
         this.weathermultiply=4;
@@ -36,6 +36,7 @@ class krak extends aliveCreature{
     }
     bazmanal() {
         var norVandak = random(this.check(1, 2, 4));
+        this.multiply++;
         if (this.multiply>=this.weathermultiply &&norVandak) {
             if (matrix[norVandak[1]][norVandak[0]] == 1) {
                 for (var i in grassArr) {

@@ -158,7 +158,6 @@ function draw() {
 							matrix[y][x]=10;
 							// varvacxotArr.push(grassArr[i]);
 							grassArr.splice(i,1);
-							console.log("tadam")
 							varvacxotArr.push(new varvacxot(x,y))
 						}
 					}
@@ -264,7 +263,6 @@ function draw() {
 	}
 	for(var i in varvacxotArr){
 		varvacxotArr[i].varvel();
-		console.log("varveci");
 	}
 }
 

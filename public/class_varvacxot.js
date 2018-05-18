@@ -8,7 +8,7 @@ class varvacxot{
             matrix[varvacxotArr[i].y][varvacxotArr[i].x]=16;
             krakArr.push(new krak(varvacxotArr[i].x,varvacxotArr[i].y))
             varvacxotArr.splice(i,1)
-           console.log(krakArr)
+           
         }
     }
 }
