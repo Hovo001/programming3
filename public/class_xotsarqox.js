@@ -35,7 +35,7 @@ class xotsarqox extends aliveCreature{
     }
     sharjvel() {
         this.stanalNorKordinatner();
-        var norvandak = random(this.check(0,1));
+        var norvandak = randomelement(this.check(0,1));
         matrix[this.y][this.x] = 0;
         if (norvandak) {
             this.x = norvandak[0];
@@ -44,7 +44,7 @@ class xotsarqox extends aliveCreature{
         }
     }
     stexcelxot() {
-       var xotistexcelutex=random(this.check(0));
+       var xotistexcelutex=randomelement(this.check(0));
        if(xotistexcelutex){
            var norxotik=new Grass(xotistexcelutex[0],xotistexcelutex[1]);
            grassArr.push(norxotik);
@@ -55,7 +55,7 @@ class xotsarqox extends aliveCreature{
     }
     stexcelxotaker(){
         if(this.energy >=20){
-            var norxotaker=random(this.check(0));
+            var norxotaker=randomelement(this.check(0));
             if(norxotaker){
                 var xotutox= new Xotaker(norxotaker[0],norxotaker[1]);
                 xotakerArr.push(xotutox);
@@ -66,7 +66,7 @@ class xotsarqox extends aliveCreature{
     }
     stexcelgishatich(){
         if(this.energy1>=30){
-            var norgishatich=random(this.check(0));
+            var norgishatich=randomelement(this.check(0));
             if(norgishatich){
                 var gishatich1= new gishatich(norgishatich[0],norgishatich[1])
                 gishatichArr.push(gishatich1);
@@ -77,7 +77,7 @@ class xotsarqox extends aliveCreature{
     }
     hangcnelkrak(){
         this.stanalNorKordinatner();
-        var gtnelkrak=random(this.check(16));
+        var gtnelkrak=randomelement(this.check(16));
         if(gtnelkrak){
             this.energy+=2;
             this.energy1+=5

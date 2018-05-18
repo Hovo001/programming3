@@ -29,9 +29,9 @@ class Xotaker extends aliveCreature {
 
     bazmanal() {
         if (this.ser == "arakan") {
-            var pntrelaxjik = random(this.check(2.5))
+            var pntrelaxjik = randomelement(this.check(2.5))
             if (pntrelaxjik) {
-                var bazmanalutex = random(this.check(0))
+                var bazmanalutex = randomelement(this.check(0))
                 if (bazmanalutex && this.multiply >= this.weathermultiply) {
                     var r = (Math.round(Math.random())) / 2;
                     var norxotaker = new Xotaker(bazmanalutex[0], bazmanalutex[1],r)
@@ -47,7 +47,7 @@ class Xotaker extends aliveCreature {
     }
     sharjvel() {
         this.stanalNorKordinatner();
-        var norvandak = random(this.check(0));
+        var norvandak = randomelement(this.check(0));
         matrix[this.y][this.x] = 0;
         if (this.ser == "arakan") {
             if (norvandak) {
@@ -66,7 +66,7 @@ class Xotaker extends aliveCreature {
     }
     utel() {
         this.stanalNorKordinatner();
-        var gtacxot = random(this.check(1))
+        var gtacxot = randomelement(this.check(1))
         if (this.ser == "arakan") {
             if (gtacxot) {
                 matrix[this.y][this.x] = 0;

@@ -19,7 +19,7 @@ class Grass extends aliveCreature{
     }
     bazmanal() {
         this.multiply++;
-        var norVandak = random(this.check(0));
+        var norVandak = randomelement(this.check(0));
         // console.log(norVandak, this.multiply);
         if (this.multiply >=this.weathermultiply && norVandak) {
             var norXot = new Grass(norVandak[0], norVandak[1]);

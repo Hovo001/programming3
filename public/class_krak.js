@@ -34,8 +34,10 @@ class krak extends aliveCreature{
         return found;
 
     }
+    
+    
     bazmanal() {
-        var norVandak = random(this.check(1, 2, 4));
+        var norVandak = randomelement(this.check(1, 2, 4));
         this.multiply++;
         if (this.multiply>=this.weathermultiply &&norVandak) {
             if (matrix[norVandak[1]][norVandak[0]] == 1) {

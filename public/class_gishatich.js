@@ -37,7 +37,7 @@ class gishatich extends aliveCreature{
     }
     sharjvel() {
         this.stanalNorKordinatner();
-        var norvandak = random(this.check(0));
+        var norvandak = randomelement(this.check(0));
         matrix[this.y][this.x] = 0;
       if(this.ser=="arakan"){
             if (norvandak) {
@@ -55,8 +55,8 @@ class gishatich extends aliveCreature{
     }
     utel() {
         this.stanalNorKordinatner();
-        var gtackendani = random(this.check(2))
-        var gtacaxjikkendani = random(this.check(2.5))
+        var gtackendani = randomelement(this.check(2))
+        var gtacaxjikkendani = randomelement(this.check(2.5))
      if(this.ser == "arakan"){
             if (gtackendani) {
             matrix[this.y][this.x] = 0;
@@ -101,9 +101,9 @@ class gishatich extends aliveCreature{
 
           if (this.ser == "arakan") {
               this.multiply++;
-            var pntrelaxjik = random(this.check(4.5))
+            var pntrelaxjik = randomelement(this.check(4.5))
             if (pntrelaxjik) {
-                var bazmanalutex = random(this.check(0))
+                var bazmanalutex = randomelement(this.check(0))
                 if (bazmanalutex && this.multiply>=this.weathermultiply) {
                     var r = (Math.round(Math.random())) / 2
                     matrix[this.y][this.x] += r;
