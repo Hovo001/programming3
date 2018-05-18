@@ -100,7 +100,7 @@ setInterval(weatherChange, 2500);
 // 		rect(side * x, side * y, side, side);
 // 	}
 // }
-function setInterval(main,100) {
+function setInterval(main,100)
 	function main() {
 		xpel = document.getElementById("lightning");
 		for (var i = 0; i < n; i++) {
@@ -274,7 +274,7 @@ function setInterval(main,100) {
 		res.redirect('index.html');
 	});
 	server.listen(3000);
-}
+
 
 
 
