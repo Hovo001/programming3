@@ -1,10 +1,13 @@
-console.log("something");
+console.log("working on port 3000");
 var express = require('express');
+var fs = require("fs")
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-global.grass = require("./public/class_grass.js");
-global.xotaker = require("./public/class_xotaker.js");
+global.aliveCreature = require("./public/aliveCreature.js")
+global.Grass = require("./public/class_grass.js");
+global.Xotaker = require("./public/class_xotaker.js");
+global.xotsarqox = require("./public/class_xotsarqox.js")
 global.gishatich = require("./public/class_gishatich.js");
 global.krak = require("./public/class_krak.js");
 global.varvacxot = require("./public/class_varvacxot");
@@ -20,6 +23,10 @@ global.varvacxot = require("./public/class_varvacxot");
 global.matrix = []
 var n = 30;
 var m = 30;
+global.xotakerutel =0;
+global.xotakerbazmanal =0;
+global.xotbazmanal =0;
+
 global.grassArr = [];
 global.xotakerArr = [];
 global.gishatichArr = [];
@@ -33,24 +40,27 @@ var index4 = 0;
 var index5 = 0;
 var xotiguyn = "#59FF00"
 var weather = "amar";
-var xpel;
 var select = 0;
 function weatherChange() {
 	if (weather == "amar") {
+		xotiguyn = "#59FF00"
 		weather = "ashun";
 	}
 	else if (weather == "ashun") {
+		xotiguyn = "#FFB200"
 		weather = "dzmer";
 	}
 	else if (weather == "dzmer") {
+		xotiguyn = "#00FFF3";
 		weather = "garun";
 	}
 	else if (weather == "garun") {
+		xotiguyn = "#00FF55";
 		weather = "amar";
 	}
 }
+matrixGen(30, 30)
 setInterval(weatherChange, 2500);
-
 for (var y = 0; y < matrix.length; y++) {
 	for (var x = 0; x < matrix[y].length; x++) {
 		if (matrix[y][x] == 1) {
@@ -79,16 +89,18 @@ for (var y = 0; y < matrix.length; y++) {
 
 
 function xpel() {
-	for (var y = 0; y < n; y++) {
-		for (var x = 0; x < m; x++) {
-
-
-			if (select >= 24 && matrix[y][x] == 1) {
+	console.log("SHOT")
+	for (var y = 0; y < 30; y++) {
+		for (var x = 0; x < 30; x++) {
+			if (select >= 10 && matrix[y][x] == 1) {
+				console.log(grassArr);
 				for (var i in grassArr) {
+					// console.log("Mtav", x,y,grassArr[i].x, grassArr[i].y);
 					if (y == grassArr[i].y && x == grassArr[i].x) {
+						console.log("prcccc")
 						matrix[y][x] = 10;
 						grassArr.splice(i, 1);
-						varvacxotArr.push(new varvacxot(x, y))
+						varvacxotArr.push(new varvacxot(x, y));
 					}
 				}
 				select = 0;
@@ -98,62 +110,82 @@ function xpel() {
 		}
 	}
 }
-setInterval(main, 600)
-function main() {
-	for (var i = 0; i < n; i++) {
+function matrixGen(x, y) {
+	for (var i = 0; i < x; i++) {
 		matrix[i] = [];
-		for (var j = 0; j < m; j++) {
+		for (var j = 0; j < y; j++) {
 			matrix[i][j] = 0;
 		}
 	}
-	for (var i = 0; i < n; i++) {
-		for (var j = 0; j < m; j++) {
-			if (index1 <= (matrix[0].length / 2)) {
-				matrix[floor(math.random(n))][Math.floor(Math.random(m))] = 1;
-				index1++;
+	for (var i = 0; i < x; i++) {
+		for (var j = 0; j < y; j++) {
+			var r = Math.floor(Math.random() * 101)
+			if (r < 20) {
+				matrix[i][j] = 0;
+			} else if (r < 45) {
+				matrix[i][j] = 1;
+			} else if (r < 55) {
+				matrix[i][j] = 2;
+			} else if (r < 65) {
+				matrix[i][j] = 4;
+			} else if (r < 95) {
+				matrix[i][j] = 16;
+			} else {
+				matrix[i][j] = 8;
 			}
 		}
 	}
+}
+setInterval(main, 600)
+function main() {
+	
+	// for (var i = 0; i < n; i++) {
+	// 	for (var j = 0; j < m; j++) {
+	// 		if (index1 <= (matrix[0].length / 2)) {
+	// 			matrix[Math.floor(Math.random()*n)][Math.floor(Math.random()*m)] = 1;
+	// 			index1++;
+	// 		}
+	// 	}
+	// }
 
 
-	for (var i = 0; i < n; i++) {
-		for (var j = 0; j < m; j++) {
-			if (index2 <= (matrix[0].length / 2) && matrix[i][j] != 1) {
-				matrix[Math.floor(Math.random(n))][Math.floor(Math.random(m))] = 2;
-				index2++;
-			}
-		}
-	}
-	for (var i = 0; i < n; i++) {
-		for (var j = 0; j < m; j++) {
-			if (index3 <= (matrix[0].length / 4) && matrix[i][j] != 1 && matrix[i][j] != 2) {
-				matrix[Math.floor(Math.random(n))][Math.floor(Math.random(m))] = 4;
-				index3++;
-			}
-		}
-	}
-	for (var i = 0; i < n; i++) {
-		for (var j = 0; j < m; j++) {
-			if (index4 <= (matrix[0].length / 15) && matrix[i][j] != 1 && matrix[i][j] != 2 && matrix[i][j] != 4) {
-				matrix[Math.floor(Math.random(n))][Math.floor(Math.random(m))] = 8;
-				index4++;
-			}
-		}
-	}
-	for (var i = 0; i < n; i++) {
-		for (var j = 0; j < m; j++) {
-			if (index5 <= (matrix[0].length / 2) && matrix[i][j] != 1 && matrix[i][j] != 2 && matrix[i][j] != 4 && matrix[i][j] != 8) {
-				matrix[Math.floor(Math.random(n))][Math.floor(Math.random(m))] = 16;
-				index5++;
-			}
-		}
-	}
+	// for (var i = 0; i < n; i++) {
+	// 	for (var j = 0; j < m; j++) {
+	// 		if (index2 <= (matrix[0].length / 2) && matrix[i][j] != 1) {
+	// 			matrix[Math.floor(Math.random()*30)][Math.floor(Math.random()*30)] = 2;
+	// 			index2++;
+	// 		}
+	// 	}
+	// }
+	// for (var i = 0; i < n; i++) {
+	// 	for (var j = 0; j < m; j++) {
+	// 		if (index3 <= (matrix[0].length / 4) && matrix[i][j] != 1 && matrix[i][j] != 2) {
+	// 			matrix[Math.floor(Math.random()*30)][Math.floor(Math.random()*30)] = 4;
+	// 			index3++;
+	// 		}
+	// 	}
+	// }
+	// for (var i = 0; i < n; i++) {
+	// 	for (var j = 0; j < m; j++) {
+	// 		if (index4 <= (matrix[0].length / 15) && matrix[i][j] != 1 && matrix[i][j] != 2 && matrix[i][j] != 4) {
+	// 			matrix[Math.floor(Math.random()*30)][Math.floor(Math.random()*30)] = 8;
+	// 			index4++;
+	// 		}
+	// 	}
+	// }
+	// for (var i = 0; i < n; i++) {
+	// 	for (var j = 0; j < m; j++) {
+	// 		if (index5 <= (matrix[0].length / 2) && matrix[i][j] != 1 && matrix[i][j] != 2 && matrix[i][j] != 4 && matrix[i][j] != 8) {
+	// 			matrix[Math.floor(Math.random()*30)][Math.floor(Math.random()*30)] = 16;
+	// 			index5++;
+	// 		}
+	// 	}
+	// }
 
 
 	if (weather == "amar") {
 		for (var i in grassArr) {
 			grassArr[i].weathermultiply = 4;
-			xotiguyn = "#59FF00"
 		}
 		for (var i in xotakerArr) {
 			xotakerArr[i].weathermultiply = 5;
@@ -168,7 +200,6 @@ function main() {
 	if (weather == "ashun") {
 		for (var i in grassArr) {
 			grassArr[i].weathermultiply = 10;
-			xotiguyn = "#FFB200"
 		}
 		for (var i in xotakerArr) {
 			xotakerArr[i].weathermultiply = 7;
@@ -183,7 +214,6 @@ function main() {
 	if (weather == "dzmer") {
 		for (var i in grassArr) {
 			grassArr[i].weathermultiply = 16;
-			xotiguyn = "#00FFF3";
 		}
 		for (var i in xotakerArr) {
 			xotakerArr[i].weathermultiply = 8;
@@ -198,7 +228,6 @@ function main() {
 	if (weather == "garun") {
 		for (var i in grassArr) {
 			grassArr[i].weathermultiply = 12;
-			xotiguyn = "#00FF55";
 		}
 		for (var i in xotakerArr) {
 			xotakerArr[i].weathermultiply = 6;
@@ -245,21 +274,35 @@ function main() {
 	for (var i in varvacxotArr) {
 		varvacxotArr[i].varvel();
 	}
-	app.use(express.static("."));
-	app.get('/', function (req, res) {
-		res.redirect('index.html');
-	});
-	server.listen(3000);
-		io.on("connection" , function(socket){
-			socket.on("i've shoted",function (data){
-				xpel();
-				io.sockets.emit("catch matrix",matrix);
-			})
-			io.sockets.emit("matrix sent",matrix)
-			io.sockets.emit("weather control",xotiguyn)
-		});
+
+	io.sockets.emit("matrix sent", matrix);
+	io.sockets.emit("weather control", xotiguyn);
+	// console.log(matrix);
+
 }
+function stats(){
+	var file="stat.json";
+	var texekutyun ={
+		"xotakery_kerav":xotakerutel,
+		"xoty_bazmacav":xotbazmanal,
+		"xotakery_bazmacav":xotakerbazmanal
+	}
+	var myJSON = JSON.stringify(texekutyun);
+	fs.writeFileSync(file,myJSON);
+
+}
+setInterval(stats,600)
 
 
 
-
+app.use(express.static("."));
+app.get('/', function (req, res) {
+	res.redirect('./public/index.html');
+});
+server.listen(3000);
+io.on("connection", function (socket) {
+	socket.on("i've shoted", function (data) {
+		xpel();
+		io.sockets.emit("catch matrix", matrix);
+	})
+});

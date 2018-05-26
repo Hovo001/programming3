@@ -1,3 +1,8 @@
+var aliveCreature = require("./alivecreature.js")
+      function randomelement(items)
+{
+return items[Math.floor(Math.random()*items.length)];   
+}
 module.exports=class Grass extends aliveCreature{
     constructor(x, y) {
         super(x,y);
@@ -17,7 +22,9 @@ module.exports=class Grass extends aliveCreature{
 
 
     }
+
     bazmanal() {
+        xotbazmanal++;
         this.multiply++;
         var norVandak = randomelement(this.check(0));
         // console.log(norVandak, this.multiply);

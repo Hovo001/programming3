@@ -1,3 +1,8 @@
+aliveCreature = require("./alivecreature.js");
+      function randomelement(items)
+{
+return items[Math.floor(Math.random()*items.length)];   
+}
 module.exports=class Xotaker extends aliveCreature {
     constructor(x, y, ser) {
         super(x, y);
@@ -29,6 +34,7 @@ module.exports=class Xotaker extends aliveCreature {
 
     bazmanal() {
         if (this.ser == "arakan") {
+            xotakerbazmanal++;
             var pntrelaxjik = randomelement(this.check(2.5))
             if (pntrelaxjik) {
                 var bazmanalutex = randomelement(this.check(0))
@@ -66,6 +72,7 @@ module.exports=class Xotaker extends aliveCreature {
     }
     utel() {
         this.stanalNorKordinatner();
+        xotakerutel++;
         var gtacxot = randomelement(this.check(1))
         if (this.ser == "arakan") {
             if (gtacxot) {
@@ -99,6 +106,10 @@ module.exports=class Xotaker extends aliveCreature {
             }
         }
     }
+       randomelement(items)
+{
+return items[Math.floor(Math.random()*items.length)];   
+}
     mahanal() {
 
         matrix[this.y][this.x] = 0;

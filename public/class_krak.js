@@ -1,3 +1,8 @@
+aliveCreature = require("./alivecreature.js");
+      function randomelement(items)
+{
+return items[Math.floor(Math.random()*items.length)];   
+}
 module.exports=class krak extends aliveCreature{
     constructor(x,y){
         super(x,y);
@@ -19,6 +24,10 @@ module.exports=class krak extends aliveCreature{
             [this.x + 1, this.y + 1]
         ];
     }
+       randomelement(items)
+{
+return items[Math.floor(Math.random()*items.length)];   
+}
     check(a,b,c) {
         this.stanalNorKordinatner();
         var found = [];

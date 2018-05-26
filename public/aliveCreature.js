@@ -16,10 +16,8 @@ module.exports = class aliveCreature {
         }
         return found;
     }
-    randomelement(items)
+      randomelement(items)
 {
-  
-return items[Math.floor(Math.random()*items.length)];
-     
+return items[Math.floor(Math.random()*items.length)];   
 }
     }

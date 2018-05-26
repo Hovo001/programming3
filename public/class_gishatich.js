@@ -1,3 +1,8 @@
+aliveCreature = require("./alivecreature.js")
+      function randomelement(items)
+{
+return items[Math.floor(Math.random()*items.length)];   
+}
 module.exports=class gishatich extends aliveCreature{
     constructor(x, y,ser) {
         super(x,y);
@@ -8,6 +13,10 @@ module.exports=class gishatich extends aliveCreature{
         this.ser =(ser == 0 ? "arakan": "igakan" ) 
         this.weathermultiply =4;
     }
+       randomelement(items)
+{
+return items[Math.floor(Math.random()*items.length)];   
+}
     stanalNorKordinatner() {
         this.directions = [
             [this.x - 1, this.y - 1],

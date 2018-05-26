@@ -1,3 +1,8 @@
+aliveCreature = require("./alivecreature.js")
+      function randomelement(items)
+{
+return items[Math.floor(Math.random()*items.length)];   
+}
 module.exports=class xotsarqox extends aliveCreature{
     constructor (x,y){
       super(x,y);
@@ -6,6 +11,10 @@ module.exports=class xotsarqox extends aliveCreature{
         this.energy1=7
         this.index=8;
     }
+       randomelement(items)
+{
+return items[Math.floor(Math.random()*items.length)];   
+}
     stanalNorKordinatner() {
         this.directions = [
             [this.x - 1, this.y - 1],
