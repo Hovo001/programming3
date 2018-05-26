@@ -3,11 +3,11 @@ var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-var grass = require(".public/class_grass.js");
-var xotaker = require(".public/class_xotaker.js");
-var gishatich = require(".public/class_gishatich.js");
-var krak = require("..public/class_krak.js");
-var varvacxot = require(".public/class_varvacxot");
+global.grass = require("./public/class_grass.js");
+global.xotaker = require("./public/class_xotaker.js");
+global.gishatich = require("./public/class_gishatich.js");
+global.krak = require("./public/class_krak.js");
+global.varvacxot = require("./public/class_varvacxot");
 // var matrix = [
 // 	[0, 0, 1, 0, 0],
 // 	[1, 2, 0, 0, 0],

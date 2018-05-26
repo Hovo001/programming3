@@ -1,4 +1,4 @@
-class krak extends aliveCreature{
+module.exports=class krak extends aliveCreature{
     constructor(x,y){
         super(x,y);
         this.directions= [];

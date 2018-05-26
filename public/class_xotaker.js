@@ -1,4 +1,4 @@
-class Xotaker extends aliveCreature {
+module.exports=class Xotaker extends aliveCreature {
     constructor(x, y, ser) {
         super(x, y);
         this.energy = 12;

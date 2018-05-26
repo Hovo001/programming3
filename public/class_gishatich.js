@@ -1,4 +1,4 @@
-class gishatich extends aliveCreature{
+module.exports=class gishatich extends aliveCreature{
     constructor(x, y,ser) {
         super(x,y);
         this.energy = 30;

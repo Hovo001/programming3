@@ -1,4 +1,4 @@
-class xotsarqox extends aliveCreature{
+module.exports=class xotsarqox extends aliveCreature{
     constructor (x,y){
       super(x,y);
         this.directions = [];

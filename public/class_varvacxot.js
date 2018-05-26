@@ -1,4 +1,4 @@
-class varvacxot{    
+module.exports=class varvacxot{    
     constructor(x,y){
         this.x=x;
         this.y=y;
